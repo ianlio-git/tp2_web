@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Instituto Eureka</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-montserrat bg-gray-100 ">
+    <div class="container mx-auto p-8 bg-white rounded-lg shadow-lg max-w-3xl">
+        <h1 class="text-4xl font-bold text-center mb-6 text-verde-agua">Preguntas Frecuentes (FAQ)</h1>
+        
+        <p class="text-lg mb-4 text-gray-700">Aquí encontrarás respuestas a las preguntas más comunes sobre nuestros cursos y servicios en Instituto Eureka. Si tienes más dudas, no dudes en contactarnos.</p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Preguntas Comunes</h2>
+
+        <div class="space-y-4">
+            <div class="faq-item bg-gray-50 rounded-lg shadow-md p-4" tabindex="0">
+                <label class="text-lg font-semibold text-gray-800">1. ¿Cómo puedo realizar una reserva?</label>
+                <p class="faq-answer text-gray-700">Puedes realizar una <a href="#" class="text-verde-agua underline" onclick="loadPage('reservas')">reserva</a> a través de nuestra página de reservas, donde encontrarás un formulario sencillo para completar con tus datos. Asegúrate de seleccionar el curso y la fecha deseada.</p>
+            </div>
+
+            <div class="faq-item bg-gray-50 rounded-lg shadow-md p-4" tabindex="0">
+                <label class="text-lg font-semibold text-gray-800">2. ¿Qué cursos ofrecen?</label>
+                <p class="faq-answer text-gray-700">Ofrecemos cursos en diversas áreas, incluyendo matemáticas, programación, ciencias y habilidades blandas. Consulta la <a href="#" class="text-verde-agua underline" onclick="loadPage('cursos')">sección de Cursos y Tutores</a> para más detalles.</p>
+            </div>
+
+            <div class="faq-item bg-gray-50 rounded-lg shadow-md p-4" tabindex="0">
+                <label class="text-lg font-semibold text-gray-800">3. ¿Puedo cambiar la fecha de mi reserva?</label>
+                <p class="faq-answer text-gray-700">Sí, puedes cambiar la fecha de tu reserva contactándonos directamente. Asegúrate de hacerlo con al menos 24 horas de antelación para evitar inconvenientes.</p>
+            </div>
+
+            <div class="faq-item bg-gray-50 rounded-lg shadow-md p-4" tabindex="0">
+                <label class="text-lg font-semibold text-gray-800">4. ¿Ofrecen clases en línea?</label>
+                <p class="faq-answer text-gray-700">Sí, todos nuestros cursos están disponibles en línea, permitiéndote aprender desde la comodidad de tu hogar. También ofrecemos <a href="#" class="text-verde-agua underline" onclick="loadPage('recursos')">recursos</a> adicionales para mejorar tu aprendizaje.</p>
+            </div>
+
+            <div class="faq-item bg-gray-50 rounded-lg shadow-md p-4" tabindex="0">
+                <label class="text-lg font-semibold text-gray-800">5. ¿Qué métodos de pago aceptan?</label>
+                <p class="faq-answer text-gray-700">Aceptamos diversas formas de pago, incluyendo tarjetas de crédito, débito y transferencias bancarias. Para más detalles, visita nuestra <a href="#" class="text-verde-agua underline" onclick="loadPage('pagos')">sección de Métodos de Pago</a>.</p>
+            </div>
+
+            <div class="faq-item bg-gray-50 rounded-lg shadow-md p-4" tabindex="0">
+                <label class="text-lg font-semibold text-gray-800">6. ¿Qué sucede si no puedo asistir a una clase?</label>
+                <p class="faq-answer text-gray-700">Si no puedes asistir a una clase, te recomendamos que nos lo informes con anticipación. Ofrecemos opciones de recuperación y acceso a grabaciones de las clases, dependiendo del curso. Para más detalles, contáctanos directamente.</p>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <p class="text-gray-600">¿Tienes dudas? <a href="#" class="text-verde-agua underline" onclick="loadPage('contacto')">Contáctanos</a> para más información.</p>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>

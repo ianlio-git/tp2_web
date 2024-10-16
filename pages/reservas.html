@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Instituto Eureka</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-montserrat bg-gray-100">
+    <div class="container mx-auto  p-8 bg-white rounded-lg shadow-lg max-w-3xl">
+        <h1 class="text-4xl font-bold text-center mb-6 text-verde-agua">Reservas</h1>
+        
+        <p class="text-lg mb-4 text-gray-700">En Instituto Eureka, ofrecemos una plataforma sencilla y efectiva para realizar reservas de clases y tutores. Por favor, sigue los pasos a continuación para realizar tu reserva.</p>
+        
+        <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Pasos para realizar una reserva:</h2>
+        <ol class="list-decimal list-inside mb-6 text-gray-700">
+            <li class="mb-2">Selecciona el curso o tutor de tu interés.</li>
+            <li class="mb-2">Elige la fecha y hora que desees para tu reserva.</li>
+            <li class="mb-2">Completa el formulario con tus datos personales.</li>
+            <li class="mb-2">Confirma tu reserva y recibe una notificación en tu correo electrónico.</li>
+        </ol>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Formulario de Reserva</h2>
+        <form class="bg-gray-50 p-6 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre:</label>
+                <input type="text" id="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="curso">Curso:</label>
+                <select id="curso" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <option value="">Selecciona un curso</option>
+                    <option value="matematica">Matemáticas</option>
+                    <option value="programacion">Programación</option>
+                    <option value="ciencias">Ciencias</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="fecha">Fecha:</label>
+                <input type="date" id="fecha" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="hora">Hora:</label>
+                <input type="time" id="hora" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-6">
+                <button class="bg-verde-agua hover:bg-green-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Reservar
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-8 text-center">
+            <p class="text-gray-600">¿Tienes dudas? <a href="#" class="text-verde-agua underline" onclick="loadPage('contacto')">Contáctanos</a> para más información.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
