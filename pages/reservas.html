@@ -5,197 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas - Instituto Eureka</title>
     <link rel="stylesheet" href="../styles.css">
- 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body class="font-montserrat bg-gray-100">
-    <div class="container mx-auto  p-8 bg-white rounded-lg shadow-lg max-w-3xl">
-        <h1 class="text-4xl font-bold text-center mb-6 text-verde-agua">Reservas</h1>
+<body class="font-montserrat bg-green-100"> <!-- Cambia el fondo a verde claro -->
+    <div class="container mx-auto p-8 bg-white rounded-lg shadow-lg max-w-2xl">
+        <h1 class="text-4xl font-bold text-center mb-6 text-verde-agua">Reservas</h1> <!-- Cambia el color del título principal -->
         
-        <p class="text-lg mb-4 text-gray-700">En Instituto Eureka, ofrecemos una plataforma sencilla y efectiva para realizar reservas de clases y tutores. Por favor, sigue los pasos a continuación para realizar tu reserva.</p>
+        <p class="text-lg mb-4 text-verde-agua">En Instituto Eureka, ofrecemos una plataforma sencilla y efectiva para realizar reservas de clases y tutores. Por favor, sigue los pasos a continuación para realizar tu reserva.</p> <!-- Cambia el color del texto -->
         
-        <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Pasos para realizar una reserva:</h2>
-        <ol class="list-decimal list-inside mb-6 text-gray-700">
-            <li class="mb-2">Selecciona el curso o tutor de tu interés.</li>
-            <li class="mb-2">Elige la fecha y hora que desees para tu reserva.</li>
-            <li class="mb-2">Completa el formulario con tus datos personales.</li>
-            <li class="mb-2">Confirma tu reserva y recibe una notificación en tu correo electrónico.</li>
+        <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Pasos para realizar una reserva:</h2> <!-- Cambia el color del subtítulo -->
+        <ol class="list-decimal list-inside mb-6 text-verde-agua"> <!-- Cambia el color de la lista -->
+            <li class="mb-2">Selecciona un curso y profesor de tu interés.</li>
+            <li class="mb-2">Indica la cantidad de clases que deseas reservar.</li>
+            <li class="mb-2">Elige el método de pago que prefieres.</li>
+            <li class="mb-2">Haz clic en "Calcular Costo" para ver el total de la reserva.</li>
+            <li class="mb-2">Confirma tu reserva haciendo clic en "Reservar".</li>
         </ol>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Formulario de Reserva</h2>
+        <form id="reservation-form" class="space-y-4">
+            <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Formulario de Reserva</h2>
+            
+            <div id="course-container" class="space-y-4">
+                <div class="subject-row flex flex-col bg-green-50 p-4 rounded-lg shadow">
+                    <label class="text-verde-agua">Selecciona un Curso:</label>
+                    <select class="form-select subject-select mb-3 p-2 border border-green-300 rounded" required>
+                        <option disabled selected>Elegir un Curso</option>
+                    </select>
+                    <label class="text-verde-agua">Selecciona un Profesor:</label>
+                    <select class="form-select teacher-select mb-3 p-2 border border-green-300 rounded" required>
+                        <option disabled selected>Elegir un Profesor</option>
+                    </select>
+                    <label class="text-verde-agua">Cantidad de Clases:</label>
+                    <input type="number" class="form-control class-count mb-3 p-2 border border-green-300 rounded w-full" placeholder="Clases" min="1" required>
+                    
+                    <!-- Sección de Método de Pago visible dentro del mismo contenedor -->
+                    <h4 class="font-semibold text-verde-agua mt-4">Método de Pago</h4>
+                    <select id="payment-method" class="form-select mb-3 p-2 border border-green-300 rounded" required>
+                        <option value="1">Efectivo</option>
+                        <option value="3">3 cuotas (5% Interés)</option>
+                        <option value="6">6 cuotas (10% Interés)</option>
+                        <option value="12">12 cuotas (15% Interés)</option>
+                    </select>
+                    <button type="submit" class="btn btn-success bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Calcular Costo</button> <!-- Cambié el color del texto en el botón -->
+                </div>
+            </div>
 
-
-
-    <!-- Form Section -->
-    <form id="course-form">
-        <div id="course-container">
-          <div class="subject-row row align-items-center">
-            <div class="col-md-6">
-              <select class="form-select subject-select" required></select>
-            </div>
-            <div class="col-md-3">
-              <input type="number" class="form-control class-count" placeholder="Cantidad de Clases" min="1" required>
-            </div>
-            <div class="col-md-3">
-              <button type="button" class="btn btn-danger remove-course">Eliminar</button>
-            </div>
-          </div>
-        </div>
-  
-        <button type="button" id="add-course" class="btn btn-primary my-3">Agregar Curso</button>
-  
-      
-        <div class="mt-4">
-          <h4>Metodo de pago</h4>
-          <select id="payment-method" class="form-select mb-3" required>
-            <option value="1">Efectivo</option>
-            <option value="3">3 cuotas (5% Interes)</option>
-            <option value="6">6 cuotas (10% Interes)</option>
-            <option value="12">12 cuotas (15% Interes)</option>
-          </select>
-  
-          <button type="submit" class="btn btn-success">Calcular Total</button>
-        </div>
-      </form>
-  
-      <div id="result" class="mt-4 alert alert-info" style="display: none;"></div>
-    </div>
-  
- 
- 
-        <!--
-        <form class="bg-gray-50 p-6 rounded-lg shadow-md">
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre:</label>
-                <input type="text" id="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingresa tu nombre" required>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="curso">Curso:</label>
-                <select id="curso" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                    <option value="">Selecciona un curso</option>
-                    <option value="matematica">Matemáticas</option>
-                    <option value="programacion">Programación</option>
-                    <option value="ciencias">Ciencias</option>
-                </select>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="fecha">Fecha:</label>
-                <input type="date" id="fecha" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="hora">Hora:</label>
-                <input type="time" id="hora" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-            </div>
-            <div class="mb-6">
-                <button class="bg-verde-agua hover:bg-green-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                    Reservar
-                </button>
-            </div>
+            <div id="result" class="mt-4 hidden alert alert-info bg-green-100 border border-green-400 text-verde-agua px-4 py-3 rounded"></div>
+            <button id="reserve-button" type="button" class="btn btn-success bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-8 w-full rounded hidden">Reservar</button> <!-- Cambié el color del texto en el botón -->
+            
         </form>
-    -->
-
-        <div class="mt-8 text-center">
-            <p class="text-gray-600">¿Tienes dudas? <a href="#" class="text-verde-agua underline" onclick="loadPage('contacto')">Contáctanos</a> para más información.</p>
-        </div>
     </div>
-    <script >
 
-
-    
-const subjects = [
-      { name: "Matematica", price: 100 },
-      { name: "Fisica", price: 150 },
-      { name: "Quimica", price: 200 },
-      { name: "Ingrel", price: 120 }
-    ];
-  
-   
-    function populateSubjects(selectElement) {
-      selectElement.innerHTML = `<option disabled selected>Elegir un Curso</option>`;
-      subjects.forEach(subject => {
-        const option = document.createElement('option');
-        option.value = subject.price;
-        option.textContent = `${subject.name} - $${subject.price} por clase`;
-        selectElement.appendChild(option);
-      });
-    }
-  
-   
-    document.getElementById('add-course').addEventListener('click', () => {
-      const courseRow = document.createElement('div');
-      courseRow.classList.add('subject-row', 'row', 'align-items-center');
-      courseRow.innerHTML = `
-        <div class="col-md-6">
-          <select class="form-select subject-select" required></select>
-        </div>
-        <div class="col-md-3">
-          <input type="number" class="form-control class-count" placeholder="Cantidad de Clases" min="1" required>
-        </div>
-        <div class="col-md-3">
-          <button type="button" class="btn btn-danger remove-course">Eliminar</button>
-        </div>
-      `;
-      document.getElementById('course-container').appendChild(courseRow);
-  
-      const selectElement = courseRow.querySelector('.subject-select');
-      populateSubjects(selectElement);
-  
-   
-      courseRow.querySelector('.remove-course').addEventListener('click', () => {
-        courseRow.remove();
-      });
-    });
-  
- 
-    document.querySelectorAll('.remove-course').forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.target.closest('.subject-row').remove();
-      });
-    });
-  
-
-    document.getElementById('course-form').addEventListener('submit', (e) => {
-      e.preventDefault(); 
-  
-      let total = 0;
-      document.querySelectorAll('.subject-row').forEach(row => {
-        const pricePerClass = parseFloat(row.querySelector('.subject-select').value) || 0;
-        const classCount = parseInt(row.querySelector('.class-count').value) || 0;
-        total += pricePerClass * classCount;
-      });
-  
-      const installments = parseInt(document.getElementById('payment-method').value);
-      let interestRate = 0;
-  
-      switch (installments) {
-        case 3:
-          interestRate = 0.05;
-          break;
-        case 6:
-          interestRate = 0.10;
-          break;
-        case 12:
-          interestRate = 0.15;
-          break;
-      }
-  
-      const finalAmount = total + (total * interestRate);
-      const resultDiv = document.getElementById('result');
-      resultDiv.style.display = 'block';
-      resultDiv.innerHTML = `
-        Total: $${total.toFixed(2)}<br>
-        Cantidad de Cuotas: ${installments}<br>
-        Intereses: ${(interestRate * 100).toFixed(2)}%<br>
-        Pago Final: $${finalAmount.toFixed(2)}
-      `;
-    });
-  
-  
-    populateSubjects(document.querySelector('.subject-select'));
-
-  
-
-
-    </script>
-    <script src="script.js"></script>
+    <script src="../scripts.js"></script>
 </body>
 </html>

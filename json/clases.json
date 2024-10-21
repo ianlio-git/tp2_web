@@ -1,0 +1,35 @@
+[
+    {
+      "name": "Matematica",
+      "price": 100,
+      "docentes": [
+        "Dr. Juan Pérez",
+        "Dra. Ana García"
+      ]
+    },
+    {
+      "name": "Fisica",
+      "price": 150,
+      "docentes": [
+        "Dra. María López",
+        "Ing. Roberto Sánchez"
+      ]
+    },
+    {
+      "name": "Quimica",
+      "price": 200,
+      "docentes": [
+        "Ing. Carlos Fernández",
+        "Dra. Laura Torres"
+      ]
+    },
+    {
+      "name": "Ingles",
+      "price": 120,
+      "docentes": [
+        "Lic. Ana Gómez",
+        "Dr. Javier Ríos"
+      ]
+    }
+  ]
+  
