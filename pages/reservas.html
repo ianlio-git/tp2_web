@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas - Instituto Eureka</title>
     <link rel="stylesheet" href="../styles.css">
+ 
 </head>
 <body class="font-montserrat bg-gray-100">
     <div class="container mx-auto  p-8 bg-white rounded-lg shadow-lg max-w-3xl">
@@ -21,6 +22,47 @@
         </ol>
 
         <h2 class="text-2xl font-semibold mt-8 mb-4 text-verde-agua">Formulario de Reserva</h2>
+
+
+
+    <!-- Form Section -->
+    <form id="course-form">
+        <div id="course-container">
+          <div class="subject-row row align-items-center">
+            <div class="col-md-6">
+              <select class="form-select subject-select" required></select>
+            </div>
+            <div class="col-md-3">
+              <input type="number" class="form-control class-count" placeholder="Cantidad de Clases" min="1" required>
+            </div>
+            <div class="col-md-3">
+              <button type="button" class="btn btn-danger remove-course">Eliminar</button>
+            </div>
+          </div>
+        </div>
+  
+        <button type="button" id="add-course" class="btn btn-primary my-3">Agregar Curso</button>
+  
+      
+        <div class="mt-4">
+          <h4>Metodo de pago</h4>
+          <select id="payment-method" class="form-select mb-3" required>
+            <option value="1">Efectivo</option>
+            <option value="3">3 cuotas (5% Interes)</option>
+            <option value="6">6 cuotas (10% Interes)</option>
+            <option value="12">12 cuotas (15% Interes)</option>
+          </select>
+  
+          <button type="submit" class="btn btn-success">Calcular Total</button>
+        </div>
+      </form>
+  
+      <div id="result" class="mt-4 alert alert-info" style="display: none;"></div>
+    </div>
+  
+ 
+ 
+        <!--
         <form class="bg-gray-50 p-6 rounded-lg shadow-md">
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre:</label>
@@ -49,12 +91,111 @@
                 </button>
             </div>
         </form>
+    -->
 
         <div class="mt-8 text-center">
             <p class="text-gray-600">¿Tienes dudas? <a href="#" class="text-verde-agua underline" onclick="loadPage('contacto')">Contáctanos</a> para más información.</p>
         </div>
     </div>
+    <script >
 
+
+    
+const subjects = [
+      { name: "Matematica", price: 100 },
+      { name: "Fisica", price: 150 },
+      { name: "Quimica", price: 200 },
+      { name: "Ingrel", price: 120 }
+    ];
+  
+   
+    function populateSubjects(selectElement) {
+      selectElement.innerHTML = `<option disabled selected>Elegir un Curso</option>`;
+      subjects.forEach(subject => {
+        const option = document.createElement('option');
+        option.value = subject.price;
+        option.textContent = `${subject.name} - $${subject.price} por clase`;
+        selectElement.appendChild(option);
+      });
+    }
+  
+   
+    document.getElementById('add-course').addEventListener('click', () => {
+      const courseRow = document.createElement('div');
+      courseRow.classList.add('subject-row', 'row', 'align-items-center');
+      courseRow.innerHTML = `
+        <div class="col-md-6">
+          <select class="form-select subject-select" required></select>
+        </div>
+        <div class="col-md-3">
+          <input type="number" class="form-control class-count" placeholder="Cantidad de Clases" min="1" required>
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-danger remove-course">Eliminar</button>
+        </div>
+      `;
+      document.getElementById('course-container').appendChild(courseRow);
+  
+      const selectElement = courseRow.querySelector('.subject-select');
+      populateSubjects(selectElement);
+  
+   
+      courseRow.querySelector('.remove-course').addEventListener('click', () => {
+        courseRow.remove();
+      });
+    });
+  
+ 
+    document.querySelectorAll('.remove-course').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.target.closest('.subject-row').remove();
+      });
+    });
+  
+
+    document.getElementById('course-form').addEventListener('submit', (e) => {
+      e.preventDefault(); 
+  
+      let total = 0;
+      document.querySelectorAll('.subject-row').forEach(row => {
+        const pricePerClass = parseFloat(row.querySelector('.subject-select').value) || 0;
+        const classCount = parseInt(row.querySelector('.class-count').value) || 0;
+        total += pricePerClass * classCount;
+      });
+  
+      const installments = parseInt(document.getElementById('payment-method').value);
+      let interestRate = 0;
+  
+      switch (installments) {
+        case 3:
+          interestRate = 0.05;
+          break;
+        case 6:
+          interestRate = 0.10;
+          break;
+        case 12:
+          interestRate = 0.15;
+          break;
+      }
+  
+      const finalAmount = total + (total * interestRate);
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `
+        Total: $${total.toFixed(2)}<br>
+        Cantidad de Cuotas: ${installments}<br>
+        Intereses: ${(interestRate * 100).toFixed(2)}%<br>
+        Pago Final: $${finalAmount.toFixed(2)}
+      `;
+    });
+  
+  
+    populateSubjects(document.querySelector('.subject-select'));
+
+  
+
+
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
