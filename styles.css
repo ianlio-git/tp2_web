@@ -68,3 +68,32 @@
 .faq-item:hover .faq-answer {
     max-height: 200px; 
 }
+/* ----------------Inicio----------------- */
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column; /* Por defecto en pantallas pequeñas */
+    align-items: center;
+    gap: 20px; /* Espacio entre imagen y texto */
+}
+
+@media (min-width: 768px) {
+    .content-wrapper {
+        flex-direction: row; /* Alineación horizontal en pantallas grandes */
+    }
+}
+
+.content-text {
+    flex: 1;
+}
+
+.content-image img {
+    max-width: 100%; /* Imagen responsive */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover; /* Mantiene proporción de la imagen */
+}
+
+.container {
+    max-width: 800px;
+}
