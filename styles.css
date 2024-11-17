@@ -38,6 +38,12 @@
   transform: scaleX(1);
 }
 
+.imagen {
+  width: 80px;
+  height: auto;
+  position: relative;
+}
+
 @media (max-width: 768px) {
   .nav-link {
     padding: 10px 15px;
@@ -141,4 +147,35 @@
 .container {
   max-width: 800px;
   margin: 0 auto;
+}
+
+/* ----------------Recursos----------------- */
+.recursos {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.381);
+}
+
+.recursos:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recurso-imagen {
+  transition: opacity 0.3s ease;
+}
+
+.recursos:hover .curso-imagen {
+  opacity: 0.9;
+}
+
+.recursos button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.recursos button:hover {
+  transform: scale(1.05);
+}
+
+.titulorec {
+  color: var(--color-verde-agua);
 }
