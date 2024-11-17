@@ -1,13 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cursos y Tutores - Instituto Eureka</title>
-    <link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-    <h1>Cursos y Tutores</h1>
-    <p>Inserte aquí el contenido de la página de Cursos y Tutores.</p>
-</body>
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Contenido principal -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-center mb-8 text-verde-agua">
+        Nuestros Cursos
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Curso 1 -->
+        <div class="curso-card bg-gray-100 rounded-lg p-6 shadow-md">
+          <div class="curso-imagen mb-4 rounded-lg overflow-hidden">
+            <img
+              src="./img/two-girls-white-t-shirts-working-office.jpg"
+              alt="Imagen Curso 1"
+              class="w-full h-40 object-cover"
+            />
+          </div>
+          <h2 class="text-xl font-bold mb-2">Desarrollo Web Frontend</h2>
+          <p class="mb-2">
+            Aprende HTML, CSS y JavaScript desde cero. Crea sitios web modernos
+            y responsive.
+          </p>
+          <p class="mb-2">Profesor: Ana García</p>
+          <p class="mb-4">Valoración: 4.5/5</p>
+          <button
+            class="bg-verde-agua text-white px-4 py-2 rounded hover:bg-opacity-90 transition"
+          >
+            Ver más
+          </button>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="curso-card bg-gray-100 rounded-lg p-6 shadow-md">
+          <div class="curso-imagen mb-4 rounded-lg overflow-hidden">
+            <img
+              src="./img/two-creative-designers-working-project-together-reading-something-digital-tablet-sharing-new-ideas-workplace-business-team-work-concept.jpg"
+              alt="Imagen Curso 2"
+              class="w-full h-40 object-cover"
+            />
+          </div>
+          <h2 class="text-xl font-bold mb-2">Diseño UX/UI</h2>
+          <p class="mb-2">
+            Domina las herramientas y principios del diseño de experiencia de
+            usuario.
+          </p>
+          <p class="mb-2">Profesor: Carlos Mendoza</p>
+          <p class="mb-4">Valoración: 4.8/5</p>
+          <button
+            class="bg-verde-agua text-white px-4 py-2 rounded hover:bg-opacity-90 transition"
+          >
+            Ver más
+          </button>
+        </div>
+
+        <!-- Curso 3 -->
+        <div class="curso-card bg-gray-100 rounded-lg p-6 shadow-md">
+          <div class="curso-imagen mb-4 rounded-lg overflow-hidden">
+            <img
+              src="./img/employees-working-together-side-view.jpg"
+              alt="Imagen Curso 3"
+              class="w-full h-40 object-cover"
+            />
+          </div>
+          <h2 class="text-xl font-bold mb-2">Desarrollo Backend con Node.js</h2>
+          <p class="mb-2">
+            Construye APIs robustas y aprende desarrollo del lado del servidor.
+          </p>
+          <p class="mb-2">Profesor: Miguel Ángel Ruiz</p>
+          <p class="mb-4">Valoración: 4.2/5</p>
+          <button
+            class="bg-verde-agua text-white px-4 py-2 rounded hover:bg-opacity-90 transition"
+          >
+            Ver más
+          </button>
+        </div>
+
+        <!-- Curso 4 -->
+        <div class="curso-card bg-gray-100 rounded-lg p-6 shadow-md">
+          <div class="curso-imagen mb-4 rounded-lg overflow-hidden">
+            <img
+              src="./img/two-girls-white-t-shirts-working-office.jpg"
+              alt="Imagen Curso 4"
+              class="w-full h-40 object-cover"
+            />
+          </div>
+          <h2 class="text-xl font-bold mb-2">Marketing Digital</h2>
+          <p class="mb-2">
+            Estrategias de marketing online, SEO y redes sociales para tu
+            negocio.
+          </p>
+          <p class="mb-2">Profesor: Laura Martínez</p>
+          <p class="mb-4">Valoración: 4.7/5</p>
+          <button
+            class="bg-verde-agua text-white px-4 py-2 rounded hover:bg-opacity-90 transition"
+          >
+            Ver más
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
