@@ -54,6 +54,16 @@
   }
 }
 
+.sitioserviciosprof {
+  text-align: center;
+  text-decoration:underline ;
+  color: beige;
+}
+
+.sitioserviciosprof:hover {
+  color: var(--color-verde-claro);
+}
+
 /* ----------------Faq----------------- */
 .faq-item {
   cursor: pointer;
